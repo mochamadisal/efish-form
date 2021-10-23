@@ -1,0 +1,17 @@
+.homepage-container{
+    .banner-homepage{
+        height: 55vh;
+        &.banner-recomendation{
+            height: 70vh;
+        }
+    }
+    .cluster-homepage{
+        &.fading-out{
+            opacity: 0;
+            display: none;
+        }
+        .slick-track{
+            margin: 0px;
+        }
+    }
+}

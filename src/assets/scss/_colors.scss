@@ -1,0 +1,9 @@
+.color-primary{color: var(--primary-text-color) !important}
+.color-black{color: var(--black-text-color)}
+.color-white{color: var(--white-text-color) !important}
+.color-secondary-white{color: var(--white-secodary-text-color)}
+.color-grey-light{color: var(--greyLight-text-color)}
+.color-grey-dark{color: var(--greyDark-text-color)}
+.color-error{color: var(--error-text-color) !important}
+.button-primary{background: linear-gradient(90deg, rgba(0, 166, 255, 0.3) 0%, var(--primary-background-button) 100%)}
+.button-secondary{background: var(--secondary-background-button) !important}

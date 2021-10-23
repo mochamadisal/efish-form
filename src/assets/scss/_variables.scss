@@ -1,0 +1,59 @@
+$defaultPrimary : #0085CC;
+$defaultSecondary : #f7fafc;
+$defaultWhite : #ffffff;
+$secondaryWhite : #E4E4EF;
+$primaryBackground : #20202b;
+$errorColor : #bd362f;
+
+
+:root{
+    //color text
+    --primary-text-color : #{$defaultPrimary};
+    --white-text-color: #{$defaultWhite};
+    --white-secodary-text-color : #{$secondaryWhite};
+    --error-text-color: #{$errorColor};
+    --black-text-color: #212529;
+    --greyLight-text-color: #C1C1CF;
+    --greyDark-text-color: #9292A0;
+    //end color text
+
+    //background color
+    --white-background-color : #{$defaultWhite};
+    --primary-background-color : #{$primaryBackground};
+    --secondary-background-color: #{$defaultSecondary};
+    //end background color
+    
+    //button
+    --primary-background-button : #{$defaultPrimary}; 
+    --primary-border-button : #{$defaultPrimary}; 
+    --secondary-background-button : #{$primaryBackground};
+    --secondary-border-button : #{$primaryBackground};
+    --disabled-background-button : #ebebeb;
+    --disabled-border-button : #ebebeb;
+    //end button
+
+    //font size
+    --font-size-10 : 10px;
+    --font-size-12 : 12px;
+    --font-size-14 : 14px;
+    --font-size-16 : 16px;
+    --font-size-18 : 18px;
+    --font-size-20 : 20px;
+    --font-size-22 : 22px;
+    --font-size-24 : 24px;
+    --font-size-26 : 26px;
+    --font-size-28 : 28px;
+    --font-size-30 : 30px;
+    --font-size-32 : 32px;
+    --font-size-34 : 34px;
+    --font-size-36 : 36px;
+    //end font size
+
+    //font weight
+    --font-weight-300 : 300;
+    --font-weight-400 : 400;
+    --font-weight-500 : 500;
+    --font-weight-600 : 600;
+    --font-weight-700 : 700;
+    //end font weight
+}
