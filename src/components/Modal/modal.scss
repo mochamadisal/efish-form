@@ -11,13 +11,12 @@
     .modal-component{
         background-color: var(--white-background-color);
         border-radius: 8px;
-        height: 85vh;
+        height: auto;
         max-height: none;
         border-radius: 0px;
         padding: 0px;
         .modal-body{
-            padding-top: 2rem;
-            overflow-y: auto;
+            padding-top: 14px;
             position: relative;
             .modal-loading{
                 left: 0;

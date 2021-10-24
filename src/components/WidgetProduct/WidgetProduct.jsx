@@ -9,13 +9,17 @@ import CardProduct from '~/components/CardProduct/CardProduct';
 import './widgetProduct.scss';
 
 
-const WidgetProduct = ({editData}) => {
+const WidgetProduct = ({editData, openDialogDeleteData}) => {
     const dispatch = useDispatch();
     const content = useSelector((state) => state.global);
     const {listProduct} = content;
 
     const editDataProduct = (index) => {
         editData(index);
+    };
+
+    const openDialogDeleteDataProduct = (index) => {
+        openDialogDeleteData(index);
     };
 
     useEffect(() => {
@@ -33,7 +37,7 @@ const WidgetProduct = ({editData}) => {
                 {listProduct.map((row, i) => {
                     return (
                         <div className="col-lg-3" key={i}>
-                            <CardProduct data={row} editDataProduct={editDataProduct} index={i}/>
+                            <CardProduct data={row} editDataProduct={editDataProduct} openDialogDeleteDataProduct={openDialogDeleteDataProduct} index={i}/>
                         </div>
                     );
                 })}

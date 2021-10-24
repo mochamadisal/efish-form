@@ -2,7 +2,7 @@ import moment from 'moment';
 import {notify} from 'react-notify-toast';
 import {v4 as uuidv4} from 'uuid';
 
-const {PostDataProduct, GetDataArea, GetDataSize, PutDataProduct} = require('~/api/methodConstApi');
+const {PostDataProduct, GetDataArea, GetDataSize, PutDataProduct, DeleteDataProduct} = require('~/api/methodConstApi');
 const {apiService} = require('~/api/actionGeneralApi');
 
 export const getSupportData = async (param) => {
@@ -47,7 +47,7 @@ export const getSupportData = async (param) => {
     return param;
 };
 
-export const submitForm = async (params) => {
+export const submitData = async (params) => {
     const result = {
         status: false,
     };
@@ -84,7 +84,7 @@ export const setDataForEdit = (param, content) => {
     return param;
 };
 
-export const updateForm = async (params, id) => {
+export const updateData = async (params, id) => {
     const result = {
         status: false,
     };
@@ -105,6 +105,25 @@ export const updateForm = async (params, id) => {
         });
         const myColor = {background: '#274653', text: '#FFFFFF'};
         notify.show('Update Success', 'custom', 5000, myColor);
+        result.status = true;
+    } catch (error) {
+        result.status = false;
+        notify.show(error.response, 'error');
+    }
+
+    return result;
+};
+
+export const deleteData = async (id) => {
+    const result = {
+        status: false,
+    };
+    try {
+        await apiService(DeleteDataProduct, {
+            search: {uuid: id},
+        });
+        const myColor = {background: '#274653', text: '#FFFFFF'};
+        notify.show('Delete Success', 'custom', 5000, myColor);
         result.status = true;
     } catch (error) {
         result.status = false;

@@ -8,7 +8,7 @@ import Button from '~/components/Button/Button';
 
 import './cardProduct.scss';
 
-const cardProduct = ({data, editDataProduct, index}) => {
+const cardProduct = ({data, editDataProduct, openDialogDeleteDataProduct, index}) => {
     return (
         <div className="card mt-12p">
             <img className="card-img-top" src={Fish} alt={data.komoditas} />
@@ -20,7 +20,7 @@ const cardProduct = ({data, editDataProduct, index}) => {
                 <h6 className="font-14 font-700 color-primary mt-8p">{rupiah(data.price)}</h6>
                 <div className="mt-12p">
                     <Button type="outline-default" label="Edit" action={() => editDataProduct(index)} customClass="with-shadow mr-12p"/>
-                    <Button type="outline-danger" label="Remove" action={() => console.log('tes')} customClass="with-shadow"/>
+                    <Button type="outline-danger" label="Remove" action={() => openDialogDeleteDataProduct(index)} customClass="with-shadow"/>
                 </div>
             </div>
         </div>
