@@ -1,6 +1,9 @@
 import React, {memo, Fragment, Suspense} from 'react';
 import {Helmet} from 'react-helmet';
+import Notifications from 'react-notify-toast';
+
 import Loading from '~/components/Loading/Loading';
+
 
 import './layout.scss';
 
@@ -14,6 +17,7 @@ const MainLayout = memo( ({Container, title}) => {
                 <Loading />
             }>
                 <div className="main-layout">
+                    <Notifications />
                     <Container />
                 </div>
             </Suspense>

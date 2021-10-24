@@ -6,4 +6,4 @@ export const DeleteDataProduct = {method: 'delete', url: 'list'};
 
 // Method for Option
 export const GetDataArea = {method: 'read', url: 'option_area'};
-export const GetDataOSize = {method: 'read', url: 'option_size'};
+export const GetDataSize = {method: 'read', url: 'option_size'};

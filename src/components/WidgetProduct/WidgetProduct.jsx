@@ -11,14 +11,14 @@ import './widgetProduct.scss';
 
 const WidgetFilter = () => {
     const dispatch = useDispatch();
-    const content = useSelector((state) => state.product);
+    const content = useSelector((state) => state.global);
     const {listProduct} = content;
 
     useEffect(() => {
         const getList = async () =>{
             const listProduct = await apiService(GetDataProduct);
             if (listProduct && listProduct.length > 0) {
-                dispatch({type: SET_PRODUCT_LIST, data: listProduct.filter((row) => row.uuid)});
+                dispatch({type: SET_PRODUCT_LIST, data: listProduct.filter((row) => row.uuid && row.komoditas)});
             };
         };
         getList();

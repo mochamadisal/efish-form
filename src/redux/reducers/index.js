@@ -1,8 +1,9 @@
-import {SET_PRODUCT_LIST, SEARCH_PRODUCT_LIST} from '../actions/typeAction';
+import {SET_PRODUCT_LIST, SEARCH_PRODUCT_LIST, SET_MODAL_ISOPEN} from '../actions/typeAction';
 
 const initialState = {
     listProduct: [],
     bankDataProduct: [],
+    modalIsOpen: false,
 };
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -24,6 +25,11 @@ export default (state = initialState, action) => {
         return {
             ...state,
             listProduct: filterData,
+        };
+    case SET_MODAL_ISOPEN:
+        return {
+            ...state,
+            modalIsOpen: action.data,
         };
     default:
         return state;
