@@ -2,7 +2,7 @@ import moment from 'moment';
 import {notify} from 'react-notify-toast';
 import {v4 as uuidv4} from 'uuid';
 
-const {PostDataProduct, GetDataArea, GetDataSize} = require('~/api/methodConstApi');
+const {PostDataProduct, GetDataArea, GetDataSize, PutDataProduct} = require('~/api/methodConstApi');
 const {apiService} = require('~/api/actionGeneralApi');
 
 export const getSupportData = async (param) => {
@@ -65,11 +65,50 @@ export const submitForm = async (params) => {
 
         await apiService(PostDataProduct, [data]);
         const myColor = {background: '#274653', text: '#FFFFFF'};
-        notify.show('Success', 'custom', 5000, myColor);
+        notify.show('Saving Success', 'custom', 5000, myColor);
         result.status = true;
     } catch (error) {
         result.status = false;
-        notify.show('Failed', 'error');
+        notify.show(error.response, 'error');
+    }
+
+    return result;
+};
+
+export const setDataForEdit = (param, content) => {
+    param['komoditas'].defaultValue = (content !== '' ? content.komoditas : content);
+    param['provinsi'].defaultValue = (content !== '' ? content.area_provinsi : content);
+    param['kota'].defaultValue = (content !== '' ? content.area_kota : content);
+    param['ukuran'].defaultValue = (content !== '' ? content.size : content);
+    param['harga'].defaultValue = (content !== '' ? content.price : content);
+    return param;
+};
+
+export const updateForm = async (params, id) => {
+    const result = {
+        status: false,
+    };
+    try {
+        const data = {
+            komoditas: params['komoditas'],
+            area_provinsi: params['provinsi'].value,
+            area_kota: params['kota'].value,
+            size: params['ukuran'].value,
+            price: params['harga'],
+            tgl_parsed: moment().format(),
+            timestamp: moment().unix(),
+        };
+
+        await apiService(PutDataProduct, {
+            search: {uuid: id},
+            set: data,
+        });
+        const myColor = {background: '#274653', text: '#FFFFFF'};
+        notify.show('Update Success', 'custom', 5000, myColor);
+        result.status = true;
+    } catch (error) {
+        result.status = false;
+        notify.show(error.response, 'error');
     }
 
     return result;

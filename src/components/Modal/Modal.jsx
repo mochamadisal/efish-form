@@ -2,7 +2,6 @@ import React, {Fragment} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {SET_MODAL_ISOPEN} from '~/redux/actions/typeAction';
 import {XCircle} from 'react-feather';
-import Loading from '~/components/Loading/Loading';
 
 import './modal.scss';
 
@@ -27,7 +26,7 @@ const Modal = ({title, Container, onLoad}) =>{
                             <div className="modal-body flex-grow-1">
                                 <Container />
                                 {onLoad &&
-                                <div className="modal-loading"><Loading /></div>}
+                                <div className="modal-loading"><p className="font-20">loading..</p></div>}
                             </div>
                         </div>
                     </div>

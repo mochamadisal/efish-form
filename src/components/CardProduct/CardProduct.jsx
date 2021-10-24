@@ -8,7 +8,7 @@ import Button from '~/components/Button/Button';
 
 import './cardProduct.scss';
 
-const cardProduct = ({data}) => {
+const cardProduct = ({data, editDataProduct, index}) => {
     return (
         <div className="card mt-12p">
             <img className="card-img-top" src={Fish} alt={data.komoditas} />
@@ -19,7 +19,7 @@ const cardProduct = ({data}) => {
                 <h6 className="font-12 color-grey font-300 mt-4p">{moment(data.tgl_parsed).format('DD MMMM YYYY')}</h6>
                 <h6 className="font-14 font-700 color-primary mt-8p">{rupiah(data.price)}</h6>
                 <div className="mt-12p">
-                    <Button type="outline-default" label="Edit" action={() => console.log('tes')} customClass="with-shadow mr-12p"/>
+                    <Button type="outline-default" label="Edit" action={() => editDataProduct(index)} customClass="with-shadow mr-12p"/>
                     <Button type="outline-danger" label="Remove" action={() => console.log('tes')} customClass="with-shadow"/>
                 </div>
             </div>

@@ -11,7 +11,9 @@
     .modal-component{
         background-color: var(--white-background-color);
         border-radius: 8px;
-        max-height: 100vh;
+        height: 85vh;
+        max-height: none;
+        border-radius: 0px;
         padding: 0px;
         .modal-body{
             padding-top: 2rem;
@@ -28,10 +30,16 @@
                 .d-flex{
                     height: 100% !important;
                 }
+                p {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
             }
         }
     }
-    @media(max-width: $resolution-medium){
+    @media(max-width: 991.98px){
         .modal-component{
             height: 100vh;
             max-height: none;

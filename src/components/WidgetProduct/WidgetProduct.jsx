@@ -9,10 +9,14 @@ import CardProduct from '~/components/CardProduct/CardProduct';
 import './widgetProduct.scss';
 
 
-const WidgetFilter = () => {
+const WidgetProduct = ({editData}) => {
     const dispatch = useDispatch();
     const content = useSelector((state) => state.global);
     const {listProduct} = content;
+
+    const editDataProduct = (index) => {
+        editData(index);
+    };
 
     useEffect(() => {
         const getList = async () =>{
@@ -29,7 +33,7 @@ const WidgetFilter = () => {
                 {listProduct.map((row, i) => {
                     return (
                         <div className="col-lg-3" key={i}>
-                            <CardProduct data={row} />
+                            <CardProduct data={row} editDataProduct={editDataProduct} index={i}/>
                         </div>
                     );
                 })}
@@ -37,4 +41,4 @@ const WidgetFilter = () => {
         </div>
     );
 };
-export default WidgetFilter;
+export default WidgetProduct;
