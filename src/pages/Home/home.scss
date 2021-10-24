@@ -1,0 +1,27 @@
+.homepage-container{
+    .box-container {
+        position: relative;
+        top: 110px;
+        @media (max-width: 991.98px) {
+            top: 95px;
+        }
+        .search-mobile {
+            width: 90%;
+            margin: auto;
+            border-radius: 8px;
+            -webkit-box-shadow: 0 10px 20px 0 rgba(54,64,90,0.2);
+            box-shadow: 0 10px 20px 0 rgba(54,64,90,0.2);
+            outline: none;
+            padding: 18px 20px;
+            display: none;
+            @media (max-width: 991.98px) {
+                display: block;
+            }
+        }
+        .box-widget-filter {
+            @media (max-width: 991.98px) {
+                display: none;
+            }
+        }
+    }
+}

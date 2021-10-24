@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 body {
     font-family: 'Montserrat', sans-serif;
-    color: var(--white-secodary-text-color);
+    color: var(--black-text-color);
 }
 
 //font size
@@ -34,20 +34,6 @@ body {
 .lineH-1_64{line-height: 1.64;}
 
 .letter-spacing-0_34{letter-spacing: 0.34px;}
-
-.text-line-through{text-decoration: line-through;}
-
-.limit-p{
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.p-one{-webkit-line-clamp: 1;}
-
-.p-two{-webkit-line-clamp: 2;}
-
-.p-three{-webkit-line-clamp: 3;}
 
 h1{
     font-size: var(--font-size-34);
@@ -82,3 +68,4 @@ h6{
     @extend .letter-spacing-0_34;
     margin-bottom: 0px;
 }
+

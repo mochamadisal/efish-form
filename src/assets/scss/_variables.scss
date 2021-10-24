@@ -1,36 +1,33 @@
-$defaultPrimary : #0085CC;
-$defaultSecondary : #f7fafc;
+$defaultPrimary : #28b796;
+$defaultSecondary : #F6F6F6;
+$defaultSecondaryDark : #274653;
 $defaultWhite : #ffffff;
-$secondaryWhite : #E4E4EF;
-$primaryBackground : #20202b;
+$defaultBlack : #333333;
 $errorColor : #bd362f;
+$successColor : #55ca92;
+$greyColor : #9292A0;
+$greyLightColor : #d4d4f0;
+$defaultBackground : #EFEFEF;
 
 
 :root{
     //color text
     --primary-text-color : #{$defaultPrimary};
     --white-text-color: #{$defaultWhite};
-    --white-secodary-text-color : #{$secondaryWhite};
     --error-text-color: #{$errorColor};
-    --black-text-color: #212529;
-    --greyLight-text-color: #C1C1CF;
-    --greyDark-text-color: #9292A0;
+    --black-text-color: #{$defaultBlack};
+    --grey-text-color: #{$greyColor};
+    --greyLight-text-color: #{$greyLightColor};
     //end color text
 
     //background color
+    --default-background-color : #{$defaultBackground};
     --white-background-color : #{$defaultWhite};
-    --primary-background-color : #{$primaryBackground};
-    --secondary-background-color: #{$defaultSecondary};
+    --primary-background-color : #{$defaultPrimary};
+    --secondary-background-color : #{$defaultSecondary};
+    --secondary-dark-background-color : #{$defaultSecondaryDark};
+    --success-background-color : #{$successColor};
     //end background color
-    
-    //button
-    --primary-background-button : #{$defaultPrimary}; 
-    --primary-border-button : #{$defaultPrimary}; 
-    --secondary-background-button : #{$primaryBackground};
-    --secondary-border-button : #{$primaryBackground};
-    --disabled-background-button : #ebebeb;
-    --disabled-border-button : #ebebeb;
-    //end button
 
     //font size
     --font-size-10 : 10px;
