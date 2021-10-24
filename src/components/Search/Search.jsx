@@ -1,16 +1,18 @@
 import React from 'react';
-import JsonToForm from 'json-reactform';
-import model from '~/constants/shemaSearch';
+import {useDispatch} from 'react-redux';
+import {SEARCH_PRODUCT_LIST} from '~/redux/actions/typeAction';
+
 import './search.scss';
 
-const submit = (params) => {
-    console.log(params);
-};
-
 const Search = () => {
+    const dispatch = useDispatch();
+
+    const searchData = (param) => {
+        dispatch({type: SEARCH_PRODUCT_LIST, data: param});
+    };
     return (
         <div className="form-search">
-            <JsonToForm model={model} onSubmit={submit}/>
+            <input type="text" placeholder="Search Data..." className="form-control" onChange={(e) => searchData(e.target.value)} />
         </div>
     );
 };

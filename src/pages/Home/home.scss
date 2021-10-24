@@ -1,10 +1,7 @@
 .homepage-container{
     .box-container {
         position: relative;
-        top: 110px;
-        @media (max-width: 991.98px) {
-            top: 95px;
-        }
+        top: 90px;
         .search-mobile {
             width: 90%;
             margin: auto;
@@ -21,6 +18,21 @@
         .box-widget-filter {
             @media (max-width: 991.98px) {
                 display: none;
+            }
+        }
+        .box-add-product {
+            .display-add {
+                width: 80%;
+                margin: auto;
+                outline: none;
+                padding: 18px 0px 8px 0px;
+                display: flex;
+                .filter-mobile {
+                    display: none;
+                    @media (max-width: 991.98px) {
+                    display: block;
+                    }
+                }
             }
         }
     }

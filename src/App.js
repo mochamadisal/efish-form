@@ -6,7 +6,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import routes from '~/routes';
 
 import {Provider} from 'react-redux';
-import configureStore from '~/redux';
+import configureStore from '~/redux/ContainerReducer';
 
 import Layout from '~/components/Layout/Layout';
 import Page404 from '~/pages/Error/Page404';

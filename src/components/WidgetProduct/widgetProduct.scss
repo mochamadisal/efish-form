@@ -2,12 +2,8 @@
   width: 80%;
   margin: auto;
   outline: none;
-  padding: 18px 0px;
-  display: flex;
-  .filter-mobile {
-    display: none;
-    @media (max-width: 991.98px) {
-      display: block;
-    }
-  }
+  padding-bottom: 10px;
+  overflow: scroll;
+  height: calc(100vh - 270px);
+  overflow-y: auto;
 }

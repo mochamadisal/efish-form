@@ -10,7 +10,7 @@ const options = [
 const Select2 = () => {
     return (
         <Fragment>
-            <p>Filter Province</p>
+            <p className="font-14 font-600 mb-4p">Filter Province</p>
             <Select options={options} />
         </Fragment>
     );
