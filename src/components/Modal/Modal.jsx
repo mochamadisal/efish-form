@@ -15,8 +15,8 @@ const Modal = ({title, Container, onLoad}) =>{
     };
     return (
         <Fragment>
-            <div className={`modal d-flex align-items-center ${modalIsOpen ? '' : 'd-none'}`}>
-                <div className="container">
+            <div id='modal' className={`modal d-flex align-items-center ${modalIsOpen ? '' : 'd-none'}`}>
+                <div className="container mr-12p ml-12p mt-12p">
                     <div className="row justify-content-center">
                         <div className="col-lg-6 modal-component d-flex flex-column with-shadow">
                             <div className="modal-title p-3 d-flex align-items-center justify-content-between with-shadow">

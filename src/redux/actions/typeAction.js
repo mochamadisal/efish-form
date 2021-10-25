@@ -1,3 +1,9 @@
 export const SET_PRODUCT_LIST = 'SET_PRODUCT_LIST';
 export const SEARCH_PRODUCT_LIST = 'SEARCH_PRODUCT_LIST';
 export const SET_MODAL_ISOPEN = 'SET_MODAL_ISOPEN';
+export const SET_PROVINCE_DATA = 'SET_PROVINCE_DATA';
+export const SET_CITY_DATA = 'SET_CITY_DATA';
+export const SET_SIZE_DATA = 'SET_SIZE_DATA';
+export const SORT_DATA = 'SORT_DATA';
+export const FILTER_DATA = 'FILTER_DATA';
+export const SET_SORT_FILTER = 'SET_SORT_FILTER';

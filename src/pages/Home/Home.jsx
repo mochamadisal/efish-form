@@ -1,9 +1,9 @@
 import React, {Fragment, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {GetDataProduct} from '~/api/methodConstApi';
+import {GetDataProduct, GetDataArea, GetDataSize} from '~/api/methodConstApi';
 import JsonToForm from 'json-reactform';
 import schemaProduct from '~/constants/schemaProduct';
-import {SET_MODAL_ISOPEN, SET_PRODUCT_LIST} from '~/redux/actions/typeAction';
+import {SET_MODAL_ISOPEN, SET_PRODUCT_LIST, SET_PROVINCE_DATA, SET_CITY_DATA, SET_SIZE_DATA} from '~/redux/actions/typeAction';
 import {apiService} from '~/api/actionGeneralApi';
 
 import Header from '~/components/Header/Header';
@@ -26,10 +26,12 @@ const Homepage = () => {
     const [onEdit, setOnEdit] = useState('');
     const [onDelete, setOnDelete] = useState('');
     const [titleModal, setTitleModal] = useState('');
+    const [showFilter, setShowFilter] = useState(false);
     const [onLoadSchema, setOnLoadSchema] = useState(false);
     const [onLoadSubmit, setOnLoadSubmit] = useState(false);
 
     const addProduct = () => {
+        setOnDelete('');
         openModalEditData('');
         dispatch({type: SET_MODAL_ISOPEN, data: true});
         setTitleModal('Add Product');
@@ -60,6 +62,7 @@ const Homepage = () => {
     };
 
     const openModalEditData = (index) => {
+        setOnDelete('');
         setTitleModal('Edit Product');
         setOnLoadSchema(false);
         const content = (index !== '' ? listProduct[index] : index);
@@ -112,7 +115,77 @@ const Homepage = () => {
         );
     };
 
+    const getListOfLocatiion = async () =>{
+        const listOfProvince = [];
+        const listOfCity = [];
+        const resData = await apiService(GetDataArea);
+
+        if (resData && resData.length > 0) {
+            resData.forEach((element) => {
+                const checkDoubleProvince = listOfProvince.find((row) => row.label === element.province);
+                if (!checkDoubleProvince) {
+                    const obj = {};
+                    obj.value = element.province;
+                    obj.label = element.province;
+                    listOfProvince.push(obj);
+                }
+                const fcheckDoubleCity = listOfCity.find((row) => row.label === element.city);
+                if (!fcheckDoubleCity) {
+                    const obj = {};
+                    obj.value = element.city;
+                    obj.label = element.city;
+                    obj.province = element.province;
+                    listOfCity.push(obj);
+                }
+            });
+        }
+        if (listOfProvince && listOfProvince.length > 0) {
+            dispatch({type: SET_PROVINCE_DATA, data: listOfProvince});
+        };
+
+        if (listOfCity && listOfCity.length > 0) {
+            dispatch({type: SET_CITY_DATA, data: listOfCity});
+        };
+    };
+
+    const getListOfSize = async () =>{
+        const listOfSize = [];
+        const resData = await apiService(GetDataSize);
+
+        if (resData && resData.length > 0) {
+            resData.forEach((element) => {
+                const obj = {};
+                obj.value = element.size;
+                obj.label = element.size;
+                listOfSize.push(obj);
+            });
+        }
+        if (listOfSize && listOfSize.length > 0) {
+            dispatch({type: SET_SIZE_DATA, data: listOfSize});
+        };
+    };
+
+    const listOfSort = [
+        {value: 'price-asc', label: 'Harga Termurah'},
+        {value: 'price-desc', label: 'Harga Termahal'},
+        {value: 'size-asc', label: 'Ukuran Terkecil'},
+        {value: 'size-desc', label: 'Ukuran Terbesar'},
+        {value: 'area_kota-asc', label: 'Kota (A-Z)'},
+        {value: 'area_kota-desc', label: 'Kota (Z-A)'},
+        {value: 'area_provinsi-asc', label: 'Provinsi (A-Z)'},
+        {value: 'area_provinsi-desc', label: 'Provinsi (Z-A)'},
+        {value: 'komoditas-asc', label: 'Komoditas (A-Z)'},
+        {value: 'komoditas-desc', label: 'Komoditas (Z-A)'},
+    ];
+
+    const hideFilter = (param) => {
+        setShowFilter(param);
+    };
+
+
     useEffect(() => {
+        getListOfLocatiion();
+        getListOfSize();
         getDataJsonToForm();
     }, []);
 
@@ -124,14 +197,16 @@ const Homepage = () => {
                     <div className="search-mobile background-white">
                         <Search />
                     </div>
-                    <div className="box-widget-filter">
-                        <WidgetFilter />
-                    </div>
-                    <div className="box-add-product">
-                        <div className="display-add">
-                            <Button type="default" label="Filter" action={() => console.log('tes')} customClass="filter-mobile with-shadow"/>
-                            <div className="flex-grow-1 d-flex justify-content-end align-items-center align-items-center">
-                                <Button type="secondary" label="ADD NEW PRODUCT" action={() => addProduct()} customClass="with-shadow"/>
+                    <div className="box-action d-flex flex-column">
+                        <div className={`box-widget-filter ${showFilter ? 'show-in-mobile' : ''}`}>
+                            <WidgetFilter listOfSort={listOfSort} setFilter={hideFilter}/>
+                        </div>
+                        <div className="box-add-product">
+                            <div className="display-add">
+                                <Button type="default" label="Filter" action={() => setShowFilter(!showFilter)} customClass="filter-mobile with-shadow"/>
+                                <div className="flex-grow-1 d-flex justify-content-end align-items-center align-items-center">
+                                    <Button type="secondary" label="ADD NEW PRODUCT" action={() => addProduct()} customClass="with-shadow"/>
+                                </div>
                             </div>
                         </div>
                     </div>

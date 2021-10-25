@@ -2,6 +2,9 @@
     .box-container {
         position: relative;
         top: 90px;
+        @media (max-width: 991.98px) {
+            top: 70px;
+        }
         .search-mobile {
             width: 90%;
             margin: auto;
@@ -17,7 +20,16 @@
         }
         .box-widget-filter {
             @media (max-width: 991.98px) {
+                position: fixed;
+                top: -39px;
+                z-index: 9999;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba($color: #000000, $alpha: 0.7);
                 display: none;
+                &.show-in-mobile{
+                    display: block;
+                }
             }
         }
         .box-add-product {
@@ -27,12 +39,20 @@
                 outline: none;
                 padding: 18px 0px 8px 0px;
                 display: flex;
+                @media (max-width: 991.98px) {
+                    width: 90%;
+                }
                 .filter-mobile {
                     display: none;
                     @media (max-width: 991.98px) {
-                    display: block;
+                        display: block;
                     }
                 }
+            }
+        }
+        .box-action{
+            @media(max-width: 991.98px){
+                flex-direction: column-reverse !important;
             }
         }
     }

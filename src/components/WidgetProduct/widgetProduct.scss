@@ -6,4 +6,8 @@
   overflow: scroll;
   height: calc(100vh - 270px);
   overflow-y: auto;
+  @media (max-width: 575.98px) {
+    width: 90%;
+    height: calc(100vh - 223px);
+  }
 }
