@@ -19,4 +19,11 @@
       margin-top: 5px;
     }
   }
+
+  .button-mobile-submit {
+    display: none;
+    @media (max-width: 991.98px) {
+      display: block;
+    }
+  }
 }
